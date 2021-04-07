@@ -20,6 +20,6 @@
  **您必须在下载后的24小时内从计算机或手机中完全删除以上内容.**  </br>
  ***您使用或者复制了本仓库且本人制作的任何脚本，则视为`已接受`此声明，请仔细阅读*** 
 
-## 即日起，本仓库仅用于个人学习使用，不提供相关使用教程同时感谢@MuzhenStudio提供的的教程，如若想详细了解，请移步[点此查看](https://github.com/MuzhenStudio/Readme)
+## 即日起，本仓库仅用于个人学习使用，不提供相关使用教程同时感谢@MuzhenStudio提供的的教程，如若想详细了解，请移步[点此查看](https://github.com/muzhen1/readme)
 ## TG通知频道[点此查看](https://t.me/joinchat/Uf-EARsmoLq4Lym3)
 ## Gitee项目备份[点此查看](https://gitee.com/shuye72/MyActions)
