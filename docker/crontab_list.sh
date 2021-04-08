@@ -7,7 +7,7 @@
 # 京小兑
 30 9,15 * * * node /scripts/jd_jxd.js >> /scripts/logs/jd_jxd.log 2>&1
 # 超级直播间红包雨
-30,31 20-23/1 23 3 * node /scripts/jd_live_redrain.js >> /scripts/logs/jd_live_redrain.log 2>&1
+0,30,31 20-23/1 * * * node /scripts/jd_live-redrain.js >> /scripts/logs/jd_live-redrain.log 2>&1
 #金口碑奖投票
 1 0,8 * * * node /scripts/jd_mgold.js >> /scripts/logs/jd_mgold.log 2>&1
 #5g盲盒
