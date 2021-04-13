@@ -119,7 +119,7 @@ async function jdWish() {
   $.assistStatus = 0;
   await getTaskList(true)
   await getUserTuanInfo()
-  if (!$.tuan) {
+  if (!$.tuan && $.assistStatus === 3 && $.canStartNewAssist) {
     await openTuan()
     if ($.hasOpen) await getUserTuanInfo()
   }
@@ -247,10 +247,11 @@ function getUserTuanInfo() {
                   "assistedPinEncrypted": data.data.encPin,
                   "channel": "FISSION_BEAN"
                 }
-                $.tuanActId = data.data.id;
-                $.assistStatus = data['data']['assistStatus'];
-                $.assistNum = data['data']['assistNum'] || 4;
               }
+              $.tuanActId = data.data.id;
+              $.assistNum = data['data']['assistNum'] || 4;
+              $.assistStatus = data['data']['assistStatus'];
+              $.canStartNewAssist = data['data']['canStartNewAssist'];
             } else {
               $.tuan = true;//活动火爆
               console.log(`获取【赚京豆(微信小程序)-瓜分京豆】活动信息失败 ${JSON.stringify(data)}\n`)

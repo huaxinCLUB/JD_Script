@@ -20,17 +20,36 @@ cron "30,31 20-23/1 * * *" script-path=https://gitee.com/lxk0301/jd_scripts/raw/
 const $ = new Env('超级直播间红包雨');
 let allMessage = '';
 let bodyList = {
-  "2": {
-    "url": "https://api.m.jd.com/client.action?functionId=liveActivityV946&uuid=8888888&client=apple&clientVersion=9.4.1&st=1617325217027&sign=a164d2ff76cf8d0f32b6f51487b0335f&sv=102",
-    "body": "body=%7B%22liveId%22%3A%223804885%22%7D"
-  },
-  "6": {
-    "url": "https://api.m.jd.com/client.action?functionId=liveActivityV946&uuid=8888888&client=apple&clientVersion=9.4.1&st=1617325216041&sign=e725cf0ce846f0ad6b0761b3c3c56c42&sv=111",
-    "body": "body=%7B%22liveId%22%3A%223820176%22%7D"
+  "13": {
+    "url": "https://api.m.jd.com/client.action?functionId=liveActivityV946&uuid=8888888&client=apple&clientVersion=9.4.1&st=1617851035011&sign=ce3542c09121b1474c0beba1413fec13&sv=112",
+    "body": "body=%7B%22liveId%22%3A%223866703%22%7D"
   }
 }
 let ids = {
-
+  '0': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '1': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '2': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '3': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '4': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '5': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '6': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '7': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '8': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '9': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '10': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '11': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '12': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '13': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '14': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '15': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '16': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '17': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '18': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '19': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '20': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '21': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '22': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN', 
+  '23': 'RRA2CnovS9KVTTwBD9NV7o4kc3P8PTN'
 }
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
