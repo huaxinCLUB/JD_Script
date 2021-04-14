@@ -25,7 +25,6 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 let helpAuthor=true; // 帮助作者
-const randomCount = $.isNode() ? 20 : 5;
 let jdNotify = true; // 是否关闭通知，false打开通知推送，true关闭通知推送
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message = '', allMessage = '';
@@ -81,7 +80,7 @@ let nowTimes = new Date(new Date().getTime() + new Date().getTimezoneOffset() * 
       await notify.sendNotify($.name, allMessage);
     }
   }
-  console.log(`\n\n开始账号内部互助 【赚京豆(微信小程序)-瓜分京豆】活动(优先内部账号互助(需内部cookie数量大于${$.assistNum || 4}个)，如有剩余助力次数则给wuzhi01助力)\n`)
+  console.log(`\n\n开始账号内部互助 【赚京豆(微信小程序)-瓜分京豆】活动(优先内部账号互助(需内部cookie数量大于${$.assistNum || 4}个)，如有剩余助力次数则给wuzhi03助力)\n`)
   for (let i = 0; i < cookiesArr.length; i++) {
     $.canHelp = true
     if (cookiesArr[i]) {
@@ -96,9 +95,9 @@ let nowTimes = new Date(new Date().getTime() + new Date().getTimezoneOffset() * 
         }
       }
       if ($.canHelp) {
-        console.log(`开始账号内部互助 赚京豆-瓜分京豆 活动，如有剩余则给wuzhi01助力`)
+        console.log(`开始账号内部互助 赚京豆-瓜分京豆 活动，如有剩余则给wuzhi03助力`)
         for (let j = 0; j < $.authorTuanList.length; ++j) {
-          console.log(`账号 ${$.UserName} 开始给wuzhi01 ${$.authorTuanList[j]['assistedPinEncrypted']}助力`)
+          console.log(`账号 ${$.UserName} 开始给wuzhi03 ${$.authorTuanList[j]['assistedPinEncrypted']}助力`)
           await helpFriendTuan($.authorTuanList[j])
           if(!$.canHelp) break
         }
@@ -399,16 +398,16 @@ async function helpFriends() {
 function readShareCode() {
   console.log(`开始`)
   return new Promise(async resolve => {
-    $.get({url: `https://gitee.com/Soundantony/RandomShareCode/raw/master/JD_Jdzz.json`,headers:{
-      "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
-    }, 'timeout': 10000}, (err, resp, data) => {
+        $.get({url: `https://gitee.com/Soundantony/RandomShareCode/raw/master/JD_Jdzz.json`,headers:{
+          "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
+        }, 'timeout': 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
           console.log(`${$.name} API请求失败，请检查网路重试`)
         } else {
           if (data) {
-            console.log(`随机取${randomCount}个码放到您固定的互助码后面(不影响已有固定互助)`)
+            console.log(`随机取助力码放到您固定的互助码后面(不影响已有固定互助)`)
             data = JSON.parse(data);
           }
         }
