@@ -81,7 +81,7 @@
 # 京东直播(每日18豆)
 10-20/5 12 * * * node /scripts/jd_live.js >> /scripts/logs/jd_live.log 2>&1
 # 微信小程序京东赚赚
-30 0,1 * * * node /scripts/jd_zz.js >> /scripts/logs/jd_zz.log 2>&1
+30 0,1 * * * node /scripts/jd_jdzz.js >> /scripts/logs/jd_jdzz.log 2>&1
 # 宠汪汪邀请助力
 10 10-20/2 * * * node /scripts/jd_joy_run.js >> /scripts/logs/jd_joy_run.log 2>&1
 # crazyJoy自动每日任务
