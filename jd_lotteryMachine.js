@@ -15,7 +15,7 @@ Object.keys(jdCookieNode).forEach((item) => {
   cookiesArr.push(jdCookieNode[item])
 })
 if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
-if (JSON.stringify(process.env).indexOf('GITHUB') > -1) process.exit(0);
+//if (JSON.stringify(process.env).indexOf('GITHUB') > -1) process.exit(0);
 // $.appId = "1EFRQwA";
 // $.appId = "1EFRYwA";
 const appIdArr = ['1EFRRxA', '1EFRQwA', '1EFRTyg', '1EFRXxg', '1EFRZwA', '1EFRZwQ', '1EFRYwA', '1EFRYxw']
