@@ -23,7 +23,11 @@
 #jd_jump_jump
 10 20 * * * node /scripts/jd_jump_jump.js >> /scripts/logs/jd_jump_jump.log 2>&1
 #jd_health
-30 0-23/5 * * * node /scripts/jd_health.js >> /scripts/logs/jd_health.log 2>&1
+13 1,22 * * * node /scripts/jd_health.js >> /scripts/logs/jd_health.log 2>&1
+#jd_health_collect
+5-45/20 * * * * node /scripts/jd_health_collect.js >> /scripts/logs/jd_health_collect.log 2>&1
+#jd_market_lottery
+4 10,19 * * * node /scripts/jd_market_lottery.js >> /scripts/logs/jd_market_lottery.log 2>&1
 ##############长期活动##############
 # 签到
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
