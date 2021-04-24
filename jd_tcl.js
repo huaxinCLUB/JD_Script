@@ -377,7 +377,7 @@ function isvObfuscator() {
           if (safeGet(data)) {
             data = JSON.parse(data);
             $.token = data["token"];
-            console.log($.token);
+            //console.log($.token);
           }
         }
       } catch (e) {
