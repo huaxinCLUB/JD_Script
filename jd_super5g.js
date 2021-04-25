@@ -511,7 +511,7 @@ function taskurl(url) {
     }
   }
 }
-function updateShareCodesCDN(url = 'https://gitee.com/Soundantony/updateTeam/raw/master/shareCodes/jd_5g.json') {
+function updateShareCodesCDN(url = 'https://cdn.jsdelivr.net/gh/wuzhi-docker1/updateTeam@master/shareCodes/jd_5g.json') {
   return new Promise(resolve => {
     $.get({
       url ,
