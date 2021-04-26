@@ -30,6 +30,8 @@
 4 10,19 * * * node /scripts/jd_market_lottery.js >> /scripts/logs/jd_market_lottery.log 2>&1
 #jd_tcl
 23 1,7 * * * node /scripts/jd_tcl.js >> /scripts/logs/jd_tcl.log 2>&1
+#jd_jintie
+10 0 * * * node /scripts/jd_jintie.js >> /scripts/logs/jd_jintie.log 2>&1
 ##############长期活动##############
 # 签到
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
