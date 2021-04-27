@@ -37,7 +37,6 @@ cron "1 0-23/1 * * *" script-path=https://raw.githubusercontent.com/nianyuguai/l
      })
      if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {
      };
-     if (JSON.stringify(process.env).indexOf('GITHUB') > -1) process.exit(0)
  } else {
      cookiesArr = [$.getdata('CookieJD'), $.getdata('CookieJD2'), ...jsonParse($.getdata('CookiesJD') || "[]").map(item => item.cookie)].filter(item => !!item);
  }
