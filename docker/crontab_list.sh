@@ -14,8 +14,6 @@
 1 9,12,19 * * * node /scripts/jd_super5g.js >> /scripts/logs/jd_super5g.log 2>&1
 #jd_oneplus盲盒
 1 3,13 * * * node /scripts/jd_oneplus.js >> /scripts/logs/jd_oneplus.log 2>&1
-#jd_xmf
-10 10 25-27 3 * node /scripts/jd_xmf.js >> /scripts/logs/jd_xmf.log 2>&1
 #极速版红包
 40 0,8 * * * node /scripts/jd_speed_redpocke.js >> /scripts/logs/jd_speed_redpocke.log 2>&1
 #jd_shoplottery
