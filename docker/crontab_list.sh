@@ -4,8 +4,6 @@
 ##############短期活动##############
 #女装盲盒 活动时间：2021-03-22到2021-03-31
 0 8 22-31/1 3 * node /scripts/jd_nzmh.js >> /scripts/logs/jd_nzmh.log 2>&1
-# 京小兑
-30 9,15 * * * node /scripts/jd_jxd.js >> /scripts/logs/jd_jxd.log 2>&1
 # 超级直播间红包雨
 0,30,31 20-23/1 * * * node /scripts/jd_liveredrain.js >> /scripts/logs/jd_liveredrain.log 2>&1
 #金口碑奖投票
