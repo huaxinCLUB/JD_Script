@@ -20,8 +20,6 @@
 5-45/20 * * * * node /scripts/jd_health_collect.js >> /scripts/logs/jd_health_collect.log 2>&1
 #jd_market_lottery
 4 10,19 * * * node /scripts/jd_market_lottery.js >> /scripts/logs/jd_market_lottery.log 2>&1
-#jd_tcl
-23 1,7 * * * node /scripts/jd_tcl.js >> /scripts/logs/jd_tcl.log 2>&1
 #jd_jintie
 10 0 * * * node /scripts/jd_jintie.js >> /scripts/logs/jd_jintie.log 2>&1
 #jd_super_redrain
