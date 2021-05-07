@@ -84,16 +84,16 @@ async function execSign() {
     if (fs.existsSync(resultPath)) {
       const barkContentStart = notifyContent.indexOf('【签到概览】')
       const barkContentEnd = notifyContent.length;
-      if (process.env.JD_BEAN_SIGN_STOP_NOTIFY === 'true') return
-      if (process.env.BARK_PUSH || notify.BARK_PUSH) process.env.JD_BEAN_SIGN_NOTIFY_SIMPLE = 'true';
-      if (process.env.JD_BEAN_SIGN_NOTIFY_SIMPLE === 'true') {
-        if (barkContentStart > -1 && barkContentEnd > -1) {
-          BarkContent = notifyContent.substring(barkContentStart, barkContentEnd);
-        }
-        BarkContent = BarkContent.split('\n\n')[0];
-      } else {
-        if (barkContentStart > -1 && barkContentEnd > -1) {
-          BarkContent = notifyContent.substring(barkContentStart, barkContentEnd);
+      if (process.env.JD_BEAN_SIGN_STOP_NOTIFY !== 'true') {
+        if (process.env.JD_BEAN_SIGN_NOTIFY_SIMPLE === 'true') {
+          if (barkContentStart > -1 && barkContentEnd > -1) {
+            BarkContent = notifyContent.substring(barkContentStart, barkContentEnd);
+          }
+          BarkContent = BarkContent.split('\n\n')[0];
+        } else {
+          if (barkContentStart > -1 && barkContentEnd > -1) {
+            BarkContent = notifyContent.substring(barkContentStart, barkContentEnd);
+          }
         }
       }
     }
