@@ -4,8 +4,6 @@
 ##############短期活动##############
 #金口碑奖投票
 1 0,8 * * * node /scripts/jd_mgold.js >> /scripts/logs/jd_mgold.log 2>&1
-#jd_oneplus盲盒
-1 3,13 * * * node /scripts/jd_oneplus.js >> /scripts/logs/jd_oneplus.log 2>&1
 #极速版红包
 40 0,8 * * * node /scripts/jd_speed_redpocke.js >> /scripts/logs/jd_speed_redpocke.log 2>&1
 #jd_shoplottery
