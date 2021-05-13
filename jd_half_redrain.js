@@ -1,23 +1,23 @@
 /*
- 整点京豆雨，每天8*16豆
+ 半点京豆雨
  已支持IOS双京东账号,Node.js支持N个京东账号
  脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
 
 [task_local]
-#整点京豆雨
-1 0-23/1 * * * https://raw.githubusercontent.com/nianyuguai/longzhuzhu/main/qx/jd_super_redrain.js, tag=整点京豆雨, enabled=true
+#半点京豆雨
+30 20-23/1 * * * https://raw.githubusercontent.com/nianyuguai/longzhuzhu/main/qx/jd_half_redrain.js, tag=半点京豆雨, enabled=true
 
 ================Loon==============
 [Script]
-cron "1 0-23/1 * * *" script-path=https://raw.githubusercontent.com/nianyuguai/longzhuzhu/main/qx/jd_super_redrain.js,tag=整点京豆雨
+cron "30 20-23/1 * * *" script-path=https://raw.githubusercontent.com/nianyuguai/longzhuzhu/main/qx/jd_half_redrain.js,tag=半点京豆雨
 
 ===============Surge=================
- 整点京豆雨 = type=cron,cronexp="1 0-23/1 * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/nianyuguai/longzhuzhu/main/qx/jd_super_redrain.js
+ 半点京豆雨 = type=cron,cronexp="30 20-23/1 * * *",wake-system=1,timeout=20,script-path=https://raw.githubusercontent.com/nianyuguai/longzhuzhu/main/qx/jd_half_redrain.js
 
 ============小火箭=========
- 整点京豆雨= type=cron,script-path=https://raw.githubusercontent.com/nianyuguai/longzhuzhu/main/qx/jd_super_redrain.js, cronexpr="1 0-23/1 * * *",timeout=200, enable=true
+ 半点京豆雨= type=cron,script-path=https://raw.githubusercontent.com/nianyuguai/longzhuzhu/main/qx/jd_half_redrain.js, cronexpr="30 20-23/1 * * *",timeout=200, enable=true
  */
- const $ = new Env('整点京豆雨');
+ const $ = new Env('半点京豆雨');
  let allMessage = '';
  let bodyList = {
      '20': {
@@ -240,11 +240,11 @@ cron "1 0-23/1 * * *" script-path=https://raw.githubusercontent.com/nianyuguai/l
  }
  
  function rraUrl() {
-     let url = 'https://cdn.jsdelivr.net/gh/nianyuguai/longzhuzhu@main/qx/jd-live-rain.json'
-     if($.isNode() && process.env.JD_RRA_URL){
-         url = process.env.JD_RRA_URL
-     }else if($.getdata('jdRRAUrl')){
-         url = $.getdata('jdRRAUrl')
+     let url = 'https://raw.githubusercontent.com/nianyuguai/longzhuzhu/main/qx/jd-half-rain.json'
+     if($.isNode() && process.env.JD_HALF_RRA_URL){
+         url = process.env.JD_HALF_RRA_URL
+     }else if($.getdata('jdHalfRRAUrl')){
+         url = $.getdata('jdHalfRRAUrl')
      }
      return url
  }
