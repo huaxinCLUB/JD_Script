@@ -20,6 +20,7 @@
  //(环境变量名 PUSH_KEY)
  let SCKEY = '';
  
+ let QSMG_KEY = '';
  // =======================================Bark App通知设置区域===========================================
  //此处填你BarkAPP的信息(IP/设备码，例如：https://api.day.app/XXXXXXXX)
  let BARK_PUSH = '';
@@ -78,6 +79,10 @@
  //==========================云端环境变量的判断与接收=========================
  if (process.env.PUSH_KEY) {
    SCKEY = process.env.PUSH_KEY;
+ }
+
+ if (process.env.QSMG_KEY) {
+   QSMG_KEY = process.env.QSMG_KEY;
  }
  
  if (process.env.QQ_SKEY) {
@@ -156,7 +161,8 @@
    desp += author;//增加作者信息，防止被贩卖等
    await Promise.all([
      serverNotify(text, desp),//微信server酱
-     pushPlusNotify(text, desp)//pushplus(推送加)
+     pushPlusNotify(text, desp),//pushplus(推送加)
+     qmsgNotify(text+'\n'+desp)
    ])
    //由于上述两种微信通知需点击进去才能查看到详情，故text(标题内容)携带了账号序号以及昵称信息，方便不点击也可知道是哪个京东哪个活动
    text = text.match(/.*?(?=\s?-)/g) ? text.match(/.*?(?=\s?-)/g)[0] : text;
@@ -216,6 +222,47 @@
    })
  }
  
+function qmsgNotify(text,time = 2100) {
+   return  new Promise(resolve => {
+     if (QMSG_KEY) {
+       //微信server酱推送通知一个\n不会换行，需要两个\n才能换行，故做此替换
+       text = text.replace(/[\n\r]/g, '\n\n');
+       const options = {
+         url: 'https://qmsg.zendee.cn/send/${SCKEY}`,
+         body: `text=${text}
+       }
+       setTimeout(() => {
+         $.post(options, (err, resp, data) => {
+           try {
+             if (err) {
+               console.log('发送通知调用API失败！！\n')
+               console.log(err);
+             } else {
+               data = JSON.parse(data);
+             
+               if (data.errno === 0 || data.data.errno === 0 ) {
+                 console.log('qmsg酱发送通知消息成功🎉\n')
+               } else if (data.errno === 500) {
+                 // 一分钟内发送相同的内容会触发
+                 console.log(`server酱发送通知消息异常: ${data.errmsg}\n`)
+               } else {
+                 console.log(`qmsg酱发送通知消息成功\n${JSON.stringify(data)}`)
+               }
+             }
+           } catch (e) {
+             $.logErr(e, resp);
+           } finally {
+             resolve(data);
+           }
+         })
+       }, time)
+     } else {
+       console.log('\n\n您未提供qmsg酱的QSMG_KEY，取消qsmg酱推送消息通知🚫\n');
+       resolve()
+     }
+   })
+ }
+
  function CoolPush(text, desp) {
    return  new Promise(resolve => {
      if (QQ_SKEY) {
