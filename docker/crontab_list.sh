@@ -8,8 +8,6 @@
 40 0,8 * * * node /scripts/jd_speed_redpocke.js >> /scripts/logs/jd_speed_redpocke.log 2>&1
 #jd_shoplottery
 10 15 * * * node /scripts/jd_shoplottery.js >> /scripts/logs/jd_shoplottery.log 2>&1
-#jd_jump
-10 8,18 * * * node /scripts/jd_jump.js >> /scripts/logs/jd_jump.log 2>&1
 #jd_health
 13 1,22 * * * node /scripts/jd_health.js >> /scripts/logs/jd_health.log 2>&1
 #jd_health_collect
