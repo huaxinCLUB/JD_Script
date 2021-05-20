@@ -68,20 +68,22 @@ const JD_API_HOST = 'https://api.m.jd.com/';
     }
   }
   for (let i = 0; i < cookiesArr.length; i++) {
+    $.index = i + 1;
     if (cookiesArr[i]) {
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=([^; ]+)(?=;?)/) && cookie.match(/pt_pin=([^; ]+)(?=;?)/)[1])
-      console.log(`${$.UserName}去帮助下一个人`)
       cookie = cookiesArr[i];
       if ($.newShareCodes.length > 1) {
-        let code = $.newShareCodes[(i + 1) % $.newShareCodes.length]
-        await help(code[0], code[1])
+        console.log(`\n【抢京豆】 ${$.UserName} 去助力排名第一的cookie`);
+        // let code = $.newShareCodes[(i + 1) % $.newShareCodes.length]
+        // await help(code[0], code[1])
+        let code = $.newShareCodes[0];
+        await help(code[0], code[1]);
       }
       if (helpAuthor && $.authorCode) {
-        console.log(`去帮助wuzhi03`)
+        console.log(`\n【抢京豆】${$.UserName} 去帮助wuzhi03`)
         for (let code of $.authorCode) {
           const helpRes = await help(code.shareCode, code.groupCode);
           if (helpRes && helpRes.data.respCode === 'SG209') {
-            console.log(`助力次数已耗尽，跳出助力`)
             break;
           }
         }
@@ -94,6 +96,11 @@ const JD_API_HOST = 'https://api.m.jd.com/';
             break;
           }
         }
+      }
+      for (let j = 1; j < $.newShareCodes.length; j++) {
+        console.log(`【抢京豆】${$.UserName} 去助力账号 ${j + 1}`)
+        let code = $.newShareCodes[j];
+        await help(code[0], code[1])
       }
     }
   }

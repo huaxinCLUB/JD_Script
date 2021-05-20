@@ -5,7 +5,7 @@
  * @Last Modified time: 2021-4-27 16:58:02
  */
 /*
-赚京豆脚本，一：签到(一周签到可获得30京豆)，二：做任务 天天领京豆(加速领京豆)、三：赚京豆-瓜分京豆
+赚京豆脚本，一：做任务 天天领京豆(加速领京豆)、三：赚京豆-瓜分京豆
 活动入口：赚京豆(微信小程序)-赚京豆-签到领京豆
 更新地址：https://gitee.com/lxk0301/jd_scripts/raw/master/jd_syj.js
 签到(一周签到可获得30京豆)参考github@jidesheng6修改而来
@@ -116,7 +116,7 @@ function showMsg() {
 }
 async function main() {
   try {
-    await userSignIn();//赚京豆-签到领京豆
+    //await userSignIn();//赚京豆-签到领京豆
     await vvipTask();//赚京豆-加速领京豆
     await distributeBeanActivity();//赚京豆-瓜分京豆
     await showMsg();
@@ -208,20 +208,26 @@ function pg_channel_page_data() {
                   const { activityExistFlag, redPacketOpenFlag, redPacketRewardTakeFlag, beanAmountTakeMinLimit, currActivityBeanAmount  } = floorInfo['floorData']['userActivityInfo'];
                   if (activityExistFlag) {
                     if (!redPacketOpenFlag) {
-                      console.log(`做任务 天天领京豆 活动未开启，现在去开启此活动\n`)
+                      console.log(`【做任务 天天领京豆】 活动未开启，现在去开启此活动\n`)
                       await openRedPacket($.token);
                     } else {
-                      console.log(`做任务 天天领京豆 累计到${beanAmountTakeMinLimit}京豆可领取到京东账户 ${currActivityBeanAmount}/${beanAmountTakeMinLimit}`)
                       if (currActivityBeanAmount < beanAmountTakeMinLimit) $.vvipFlag = true;
                       if (redPacketRewardTakeFlag) {
-                        console.log(`做任务 天天领京豆 200京豆已领取`);
+                        console.log(`【做任务 天天领京豆】 ${beanAmountTakeMinLimit}京豆已领取`);
                       } else {
-                        //领取200京豆
-                        await pg_interact_interface_invoke($.token);
+                        if (currActivityBeanAmount >= beanAmountTakeMinLimit) {
+                          //领取200京豆
+                          console.log(`【做任务 天天领京豆】 累计到${beanAmountTakeMinLimit}京豆可领取到京东账户\n当前：${currActivityBeanAmount}/${beanAmountTakeMinLimit}`)
+                          console.log(`【做任务 天天领京豆】 当前已到领取京豆条件。开始领取京豆\n`);
+                          await pg_interact_interface_invoke($.token);
+                        } else {
+                          console.log(`【做任务 天天领京豆】 累计到${beanAmountTakeMinLimit}京豆可领取到京东账户\n当前：${currActivityBeanAmount}/${beanAmountTakeMinLimit}`)
+                          console.log(`【做任务 天天领京豆】 当前未达到领取京豆条件。开始做任务\n`);
+                        }
                       }
                     }
                   } else {
-                    console.log(`200京豆活动已下线`)
+                    console.log(`【做任务 天天领京豆】 活动已下线`)
                   }
                 }
               }
