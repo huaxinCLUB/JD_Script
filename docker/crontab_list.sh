@@ -32,6 +32,8 @@
 15 10,15,18 17-31 5 * node /scripts/jd_pk.js >> /scripts/logs/jd_pk.log 2>&1
 #母婴跳一跳 
 1 0,11,21 * * * node /scripts/jd_jump.js >> /scripts/logs/jd_jump.log 2>&1
+#Redmi合成小金刚
+20 9,21 21-27 5 * node /scripts/jd_Redmi.js >> /scripts/logs/jd_Redmi.log 2>&1
 ##############长期活动##############
 # 签到
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
