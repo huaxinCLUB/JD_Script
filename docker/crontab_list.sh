@@ -36,6 +36,10 @@
 20 9,21 21-27 5 * node /scripts/jd_Redmi.js >> /scripts/logs/jd_Redmi.log 2>&1
 #人头马
 20 10,19 20-31 5 * node /scripts/jd_martin.js >> /scripts/logs/jd_martin.log 2>&1
+#手机狂欢城
+0 0-18/6 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
+#城城分现金
+0 0-23/3 * * * node /scripts/jd_city.js >> /scripts/logs/jd_city.log 2>&1
 ##############长期活动##############
 # 签到
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
