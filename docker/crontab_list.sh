@@ -40,6 +40,8 @@
 0 0-18/6 * * * node /scripts/jd_carnivalcity.js >> /scripts/logs/jd_carnivalcity.log 2>&1
 #城城分现金
 0 0-23/3 * * * node /scripts/jd_city.js >> /scripts/logs/jd_city.log 2>&1
+#金榜创造营
+40 9,21 * * * node /scripts/jd_jbczy.js >> /scripts/logs/jd_jbczy.log 2>&1
 ##############长期活动##############
 # 签到
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
