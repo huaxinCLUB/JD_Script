@@ -32,10 +32,7 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 let cookiesArr = [];
 $.cookie = '';
 $.inviteList = [];
-$.pkInviteList = ['sSKNX-MpqKPS4b2-nZ3QDOST_hhvU3RBmT-Owl3t2G71qLGACEAmuQI',
-'sSKNX-MpqKOJsNvO5c-7Q_CdOeT5AHwHy7E2vfI_-liNplYa-itj5XZ4GNiK',
-'sSKNX-MpqKOJsNu_mM2LB8OduJe-RTvc9e5Z9a5FEfopWCHd-T6_Ke4wC3dAjYk',
-'sSKNX-MpqKOJsNv_5seLQIgNgJpNZgzR7X7uSqjtd3TR4DD9XmFXMedJArpc'];
+$.pkInviteList = [];
 $.secretpInfo = {};
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
