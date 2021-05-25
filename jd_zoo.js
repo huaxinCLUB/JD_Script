@@ -32,10 +32,10 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 let cookiesArr = [];
 $.cookie = '';
 $.inviteList = [];
-$.pkInviteList = ['sSKNX-MpqKPS5LC_m5vbBzBzHaADE-9mL5PCLBruARiICqDqifUKezxvgTpXzTg',
-'sSKNX-MpqKPS4b24nJjZB61Vndtg4qJ_VG7HRFgF6TbLLDLuCOX6EMY',
-'sSKNX-MpqKMFeg9hMgEOk83UPofavDwk_ALr8Dq6tEDNkdTnDRlz',
-'sSKNX-MpqKMHbDJtODsMol7N0NWkihQrlNa8pa6sWgXSYOfj8o5m4bqb-qqA'];
+$.pkInviteList = ['sSKNX-MpqKPS4b2-nZ3QDOST_hhvU3RBmT-Owl3t2G71qLGACEAmuQI',
+'sSKNX-MpqKOJsNvO5c-7Q_CdOeT5AHwHy7E2vfI_-liNplYa-itj5XZ4GNiK',
+'sSKNX-MpqKOJsNu_mM2LB8OduJe-RTvc9e5Z9a5FEfopWCHd-T6_Ke4wC3dAjYk',
+'sSKNX-MpqKOJsNv_5seLQIgNgJpNZgzR7X7uSqjtd3TR4DD9XmFXMedJArpc'];
 $.secretpInfo = {};
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -53,13 +53,6 @@ if ($.isNode()) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
-  console.log('活动入口：京东APP-》搜索 玩一玩-》瓜分20亿\n' +
-      '邀请好友助力：内部账号自行互助(排名靠前账号得到的机会多)\n' +
-      'PK互助：考虑中\n' +
-      '地图任务：未完成，后期添加\n' +
-      '金融APP任务：未完成，后期添加\n' +
-      '活动时间：2021-05-24至2021-06-20\n' +
-      '更新时间：2021-05-25');
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       $.cookie = cookiesArr[i];
