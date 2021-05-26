@@ -251,7 +251,9 @@ function city_lotteryAward() {
 function readShareCode() {
   console.log(`开始`)
   return new Promise(async resolve => {
-    $.get({url: `https://cdn.jsdelivr.net/gh/wuzhi-docker1/RandomShareCode@main/JD_City.json`, 'timeout': 10000}, (err, resp, data) => {
+    $.get({url: `https://gitee.com/linshi333/linshi/raw/master/city.json`,headers: {
+      "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1 Edg/87.0.4280.88"
+  },'timeout': 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
