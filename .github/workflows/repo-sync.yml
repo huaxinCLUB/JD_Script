@@ -34,7 +34,7 @@ jobs:
         if: env.dst_key
         with:
           src: github/wuzhi03
-          dst: gitee/shuye72
+          dst: gitee/Ewardliu
           static_list: "MyActions"
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
