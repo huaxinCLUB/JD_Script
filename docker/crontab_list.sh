@@ -41,7 +41,7 @@
 #城城分现金
 0 0-23/3 * * * node /scripts/jd_city.js >> /scripts/logs/jd_city.log 2>&1
 #金榜创造营
-40 9,21 * * * node /scripts/jd_jbczy.js >> /scripts/logs/jd_jbczy.log 2>&1
+40 9,21 * * * node /scripts/jd_gold_creator.js >> /scripts/logs/jd_gold_creator.log 2>&1
 #动物联盟
 0 0-23/1 * * * node /scripts/jd_zoo.js >> /scripts/logs/jd_zoo.log 2>&1
 #星推官
