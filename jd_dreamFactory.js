@@ -1049,11 +1049,11 @@ function CreateTuan() {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data['ret'] === 0) {
-              console.log(`开团成功tuanId为\n${data.data['tuanId']}`);
+              console.log(`【开团成功】tuanId为 ${data.data['tuanId']}`);
               $.tuanIds.push(data.data['tuanId']);
             } else {
               //{"msg":"活动已结束，请稍后再试~","nowTime":1621551005,"ret":10218}
-              if (data['res'] === 10218 && $.index === 1) {
+              if (data['ret'] === 10218 && ($.index === 1 || cookiesArr.length === $.index)) {
                 //只发送一次
                 $.msg($.name, '', `京喜工厂拼团瓜分电力活动团ID（activeId）已失效\n请自行抓包替换(Node环境变量为TUAN_ACTIVEID，iOS端在BoxJx)或者联系作者等待更新`);
                 if ($.isNode()) await notify.sendNotify($.name, `京喜工厂拼团瓜分电力活动团ID（activeId）已失效\n请自行抓包替换(Node环境变量为TUAN_ACTIVEID，iOS端在BoxJx)或者联系作者等待更新`)
@@ -1330,12 +1330,24 @@ function shareCodesFormat() {
 function requireConfig() {
   return new Promise(async resolve => {
     tuanActiveId = $.isNode() ? (process.env.TUAN_ACTIVEID || tuanActiveId) : ($.getdata('tuanActiveId') || tuanActiveId);
-    if (!tuanActiveId) await updateTuanIdsCDN('https://cdn.jsdelivr.net/gh/wuzhi-docker1/updateTeam@master/shareCodes/jd_updateFactoryTuanId.json');
-    if ($.tuanConfigs && $.tuanConfigs['tuanActiveId']) {
-      tuanActiveId = $.tuanConfigs['tuanActiveId'];
-      console.log(`拼团活动ID: 获取成功 ${tuanActiveId}`)
+    if (!tuanActiveId) {
+      await updateTuanIdsCDN();
+      if ($.tuanConfigs && $.tuanConfigs['tuanActiveId']) {
+        tuanActiveId = $.tuanConfigs['tuanActiveId'];
+        console.log(`拼团活动ID: 获取成功 ${tuanActiveId}\n`)
+      } else {
+        if (!$.tuanConfigs) {
+          await updateTuanIdsCDN('https://cdn.jsdelivr.net/gh/wuzhi-docker1/updateTeam@master/shareCodes/jd_updateFactoryTuanId.json');
+          if ($.tuanConfigs && $.tuanConfigs['tuanActiveId']) {
+            tuanActiveId = $.tuanConfigs['tuanActiveId'];
+            console.log(`拼团活动ID: 获取成功 ${tuanActiveId}\n`)
+          } else {
+            console.log(`拼团活动ID：获取失败，将采取脚本内置活动ID\n`)
+          }
+        }
+      }
     } else {
-      console.log(`拼团活动ID：获取失败`)
+      console.log(`自定义拼团活动ID: 获取成功 ${tuanActiveId}`)
     }
     console.log(`开始获取${$.name}配置文件\n`);
     //Node.js用户请在jdCookie.js处填写京东ck;
