@@ -46,6 +46,8 @@
 0-59/30 * * * * node /scripts/jd_zoo.js >> /scripts/logs/jd_zoo.log 2>&1
 #星推官
 0 0 * * * node /scripts/jd_xtg.js >> /scripts/logs/jd_xtg.log 2>&1
+#jd_babelDiy
+30 12 * * * node /scripts/jd_babelDiy.js >> /scripts/logs/jd_babelDiy.log 2>&1
 ##############长期活动##############
 # 签到
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
