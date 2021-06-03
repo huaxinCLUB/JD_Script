@@ -65,7 +65,6 @@ const JD_API_HOST = `https://api.m.jd.com/client.action?functionId=`;
       }*/
       for (let shopId of shopIdList) {
         console.log('\n开始店铺：' + shopId)
-        await $.wait(700)
         await mcxhd_starmall_taskList(shopId);
       }
       //break;
@@ -95,7 +94,7 @@ function QueryJDUserInfo(timeout = 0) {
             merge.enabled = false
             return
           }
-          //merge.nickname = data.base.nickname;
+          merge.nickname = data.base.nickname;
         } catch (e) {
           $.logErr(e, resp);
         } finally {
@@ -144,7 +143,6 @@ function mcxhd_starmall_taskList(shopId,timeout = 0){
             if (data.result.tasks[i].status === 1 ) {
               for (let j in data.result.tasks[i].subItem) {
                 await mcxhd_starmall_doTask(shopId,data.result.tasks[i].taskType,data.result.tasks[i].subItem[j].itemToken)
-                await $.wait(700)
                 if (data.result.tasks[i].taskType === "6" && !shareCode) shareCode = data.result.tasks[i].subItem[j].itemToken;
               }
             } else {
@@ -240,7 +238,7 @@ function mcxhd_starmall_getRedPacketAward(shopId,timeout = 0){
 }
 
 var shareCodeList = [
-  '',
+  '78xTb-mdO2_5fV_mOYWHhlCulDoInfIOFMCoXKe_FCtvxHdgilgt5BtvxYkO_ihAqYxqzItRfOSKkTe3QXanOJKngp6atwCeD_xgO9g',
   ''],shopIdList = [
     '637BQA',
     'XLDYRJ',
@@ -292,6 +290,7 @@ function jsonParse(str) {
 //初始化
 function initial() {
   merge = {
+    nickname: "",
     enabled: true,
     end: false
   }
@@ -305,7 +304,7 @@ function initial() {
 }
 //通知
 function msgShow() {
-  let message = "执行成功，请点击通知跳转APP查看！";
+  let message = "京东账号：" +merge.nickname + "\n执行成功，请点击通知跳转APP查看！";
   let url ={ "open-url" : `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%20%22des%22:%20%22m%22,%20%22url%22:%20%22https://h5.m.jd.com/babelDiy/Zeus/3Vuj8Uw26NEDNRjaT2uspf2pphK/index.html%22%20%7D`}
   $.msg($.name, "", message, url);
 }
