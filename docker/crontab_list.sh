@@ -60,6 +60,9 @@
 30 9,10 1-18 6 * node /scripts/jd_mcxhd_brandcity.js >> /scripts/logs/jd_mcxhd_brandcity.log 2>&1
 #品牌狂欢城
 30 10 1-18 6 * node /scripts/jd_brandcarnivalcity.js >> /scripts/logs/jd_brandcarnivalcity.log 2>&1
+#翻翻乐
+0 1,13 1-18 6 * node /scripts/jd_618redpacket.js >> /scripts/logs/jd_618redpacket.log 2>&1
+
 ##############长期活动##############
 # 签到
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
