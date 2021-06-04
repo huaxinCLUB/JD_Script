@@ -6,11 +6,11 @@ name: 翻翻乐
 on:
     workflow_dispatch:
     schedule:
-        - cron: "0 4,16 * * *"
+        - cron: "1 0-23/1 * 6 *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_618redpacket
+        types: jd_flipcards
 
 jobs:
     build:
@@ -47,4 +47,4 @@ jobs:
                   QYWX_AM: ${{ github.event.client_payload.QYWX_AM || secrets.QYWX_AM }}
                   PUSH_PLUS_TOKEN: ${{ github.event.client_payload.PUSH_PLUS_TOKEN || secrets.PUSH_PLUS_TOKEN }}
                   PUSH_PLUS_USER: ${{ github.event.client_payload.PUSH_PLUS_USER || secrets.PUSH_PLUS_USER }}
-                  SYNCURL: https://github.com/wuzhi03/MyActions/raw/main/jd_618redpacket.js
+                  SYNCURL: https://github.com/wuzhi03/MyActions/raw/main/jd_flipcards.js

@@ -61,7 +61,7 @@
 #品牌狂欢城
 30 10 1-18 6 * node /scripts/jd_brandcarnivalcity.js >> /scripts/logs/jd_brandcarnivalcity.log 2>&1
 #翻翻乐
-0 1,13 1-18 6 * node /scripts/jd_618redpacket.js >> /scripts/logs/jd_618redpacket.log 2>&1
+1 0-23/1 * 6 * node /scripts/jd_flipcards.js >> /scripts/logs/jd_flipcards.log 2>&1
 
 ##############长期活动##############
 # 签到

@@ -6,11 +6,6 @@
 极速版大赢家翻翻乐活动
 
 https://raw.githubusercontent.com/Wenmoux/scripts/master/jd/jd_618redpacket.js
-求个人头
-7.0帮我拆个红包
-1.打开链接：btrquv.com/1000-AhGn 
-2.点击去App按钮跳转或下载，参与活动
-或者复制这段话后去（京0东0极0速0版）￥UArfE9EY3b% https://J5RDwZTPBxgj8x
 
 已支持IOS双京东账号, Node.js支持N个京东账号
 脚本兼容: QuantumultX, Surge, Loon, 小火箭，JSBox, Node.js
