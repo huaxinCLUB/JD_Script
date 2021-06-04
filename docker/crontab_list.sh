@@ -64,6 +64,10 @@
 1 0-23/1 * 6 * node /scripts/jd_flipcards.js >> /scripts/logs/jd_flipcards.log 2>&1
 #翻翻乐
 1 5,20 * 6 * node /scripts/jd_jxlhb.js >> /scripts/logs/jd_jxlhb.log 2>&1
+#京享值pk
+15 0,6,13,19,21 * 6 * node /scripts/jd_pk.js >> /scripts/logs/jd_pk.log 2>&1
+#大牌联合618提前购
+16 23,6 3-13 6 * node /scripts/jd_618Opencard01.js >> /scripts/logs/jd_618Opencard01.log 2>&1
 ##############长期活动##############
 # 签到
 0 0,18 * * * cd /scripts && node jd_bean_sign.js >> /scripts/logs/jd_bean_sign.log 2>&1
