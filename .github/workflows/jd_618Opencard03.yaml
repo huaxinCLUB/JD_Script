@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: 大牌联合618提前购
+name: 大牌强联合好物提前购
 
 on:
     workflow_dispatch:
     schedule:
-        - cron: "16 3,13 3-18 6 *"
+        - cron: "0 3,13 3-19 6 *"
     watch:
         types: [started]
     repository_dispatch:
-        types: jd_618Opencard01
+        types: jd_618Opencard03
 
 jobs:
     build:
@@ -26,7 +26,7 @@ jobs:
             - name: 安装依赖包
               run: |
                   npm install
-            - name: "运行【大牌联合618提前购】"
+            - name: "运行【大牌强联合好物提前购】"
               run: |
                   node onlyOneExecute.js
               env:
@@ -47,4 +47,4 @@ jobs:
                   QYWX_AM: ${{ github.event.client_payload.QYWX_AM || secrets.QYWX_AM }}
                   PUSH_PLUS_TOKEN: ${{ github.event.client_payload.PUSH_PLUS_TOKEN || secrets.PUSH_PLUS_TOKEN }}
                   PUSH_PLUS_USER: ${{ github.event.client_payload.PUSH_PLUS_USER || secrets.PUSH_PLUS_USER }}
-                  SYNCURL: https://github.com/wuzhi03/MyActions/raw/main/jd_618Opencard01.js
+                  SYNCURL: https://github.com/wuzhi03/MyActions/raw/main/jd_618Opencard03.js
