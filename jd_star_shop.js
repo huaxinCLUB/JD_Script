@@ -28,11 +28,12 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 $.inviteCodeList = [];
 $.authorCodeList = [
-  'J6fwzdBepozfGGDUMwK9gXohoni3Zr--z_xQsHRIMJ4','FidM5dRVFoXjT9hi6glTZw','a32NLYB8C-GsIj01grGdag',
-  'zJwB_SJwoBb_5U-MHElKZg','Klz8HWv3s-e9M_HhF3Jt6bDgVv2BToUY6so7tIQMTeQ','g8-SvcQ0ITFMx1To8D9NCKZcNrl2eiBuJamqBsAVLYc',
+  'Gen2xW1ROh40oPe9j-nDCw','MD_AXgMSFdIcszUq8p7yw1PCj4HaypT-KHjw3EVfcyI',
+  'KPp_lf8hX0drW3Nb5OHRUwFJN6Hailnqbgn3zp0QUyo','KpXCIXHcLwGYKKMrJjYaqjGXywQMsQph1nfzX0XKDFY','oE51sIuhjNTivJHAwBOLKQ','fjIrY2n4qUqiwriropb3_Q9Gt1mcYxNVcCzpmItukvU','yjxJJMR48elHVRVxk9Bq9g','T7SN9KHrFalS-nJCyIN2zA','gG2QqbfB1PsebKLDdH9BQjMPuCDe1KBdEwZTmGwGwN8','uW3VjhlQ8d_BXA35OSQNOw'
 ];
 let cookiesArr = [];
 let uniqueIdList = [
+     {'id':'HY4HCW','name':'陈坤'},
      {'id':'637BQA','name':'成毅'},{'id':'XLDYRJ','name':'白宇'},{'id':'94FEDQ','name':'任嘉伦'},{'id':'GN949D','name':'刘宇宁'},{'id':'WG73ME','name':'李光洁'},{'id':'5JFCD6','name':'李纹翰'},
      {'id':'YCDXNN','name':'蔡徐坤'},{'id':'CX522V','name':'邓伦'},{'id':'877JM4','name':'张哲瀚'},{'id':'D22Q7C','name':'孟美岐'},{'id':'K6DARX','name':'龚俊'},{'id':'2SFR44','name':'白茶'},
      {'id':'S99D9G','name':'刘浩存'},{'id':'ET5F23','name':'吴尊'},{'id':'TXU6GB','name':'刘雨欣'},{'id':'FBFN48','name':'李宇春'},{'id':'UK2SUY','name':'虞书欣'},{'id':'VS4PEM','name':'热依扎'},
