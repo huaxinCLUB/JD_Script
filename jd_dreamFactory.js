@@ -38,8 +38,7 @@ const JD_API_HOST = 'https://m.jingxi.com';
 const helpAuthor = true; //帮助力 免费拿活动
 const notify = $.isNode() ? require('./sendNotify') : '';
 let jdNotify = true;//是否关闭通知，false打开通知推送，true关闭通知推送
-const randomCount = $.isNode() ? 20 : 5;
-let tuanActiveId = ``;
+let tuanActiveId = ``, hasSend = false;
 const jxOpenUrl = `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%20%22des%22:%20%22m%22,%20%22url%22:%20%22https://wqsd.jd.com/pingou/dream_factory/index.html%22%20%7D`;
 let cookiesArr = [], cookie = '', message = '', allMessage = '';
 const inviteCodes = [
@@ -977,7 +976,7 @@ async function joinLeaderTuan() {
     for (let tuanId of $.authorTuanIds) {
       if (!tuanId) continue
       if (!$.canHelp) break;
-      console.log(`\n账号${$.UserName} 参加作者lxk0301的团 【${tuanId}】`);
+      console.log(`\n账号${$.UserName} 参加wuzhi03的团 【${tuanId}】`);
       await JoinTuan(tuanId);
       await $.wait(1000);
     }
@@ -1059,10 +1058,10 @@ function CreateTuan() {
               $.tuanIds.push(data.data['tuanId']);
             } else {
               //{"msg":"活动已结束，请稍后再试~","nowTime":1621551005,"ret":10218}
-              if (data['ret'] === 10218 && ($.index % 5 === 0) && (new Date().getHours() % 6 === 0)) {
-                //只发送一次
+              if (data['ret'] === 10218 && !hasSend && (new Date().getHours() % 6 === 0)) {
+                hasSend = true;
                 $.msg($.name, '', `京喜工厂拼团瓜分电力活动团ID（activeId）已失效\n请自行抓包替换(Node环境变量为TUAN_ACTIVEID，iOS端在BoxJx)或者联系作者等待更新`);
-                
+                if ($.isNode()) await notify.sendNotify($.name, `京喜工厂拼团瓜分电力活动团ID（activeId）已失效\n请自行抓包替换(Node环境变量为TUAN_ACTIVEID，iOS端在BoxJx)或者联系作者等待更新`)
               }
               console.log(`开团异常：${JSON.stringify(data)}`);
             }
@@ -1299,7 +1298,7 @@ function readShareCode() {
           console.log(`${$.name} API请求失败，请检查网路重试`)
         } else {
           if (data) {
-            console.log(`随机取${randomCount}个码放到您固定的互助码后面(不影响已有固定互助)`)
+            console.log(`取助力码放到您固定的互助码后面(不影响已有固定互助)`)
             data = JSON.parse(data);
           }
         }
